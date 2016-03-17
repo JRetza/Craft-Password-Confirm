@@ -49,7 +49,7 @@ class PasswordConfirmPlugin extends BasePlugin
             {
                 $password = craft()->request->getPost('password');
                 $passwordConfirm = craft()->request->getPost('passwordConfirm');
-                if(strcmp($password, $passwordConfirm) !== 0)
+                if($password !== $passwordConfirm)
                 {
                     $event->params['user']->addErrors(array('passwordConfirm' => Craft::t('Passwords do not match')));
                     $event->performAction = false;
